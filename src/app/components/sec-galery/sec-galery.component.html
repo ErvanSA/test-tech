@@ -1,0 +1,87 @@
+<div class="mb-6 sec-galery">
+  <div class="grid items-end grid-cols-3 gap-3 mb-2">
+    <div class="text-3xl capitalize">{{ type }}</div>
+    <div class="text-right">
+      Browse all <span class="lowercase">{{ type }}</span>
+    </div>
+  </div>
+  <div class="grid grid-cols-3 gap-3 text-base-red">
+    <ng-container *ngFor="let item of dataComp; let i = index">
+      <!-- highlight -->
+      <div
+        class="relative flex flex-col justify-end col-span-2 row-span-2 p-2"
+        *ngIf="i == 0"
+      >
+        <img [src]="item?.image" class="bg-img" />
+        <div class="text-[1.3rem] font-medium capitalize leading-5">
+          {{ type == "videos" ? item?.title : item?.name }}
+        </div>
+        <div class="flex justify-between">
+          <div>
+            {{
+              type == "documents"
+                ? "By " + item?.penulis
+                : type == "people"
+                ? item?.job
+                : item?.name
+            }}
+          </div>
+          <div class="text-xs">{{ item.view + " views" }}</div>
+        </div>
+      </div>
+      <!-- card biasa -->
+      <div
+        class="min-h-[180px] flex flex-col relative justify-end p-2"
+        *ngIf="i > 0"
+      >
+        <img [src]="item.image" class="bg-img" />
+        <!-- For Video & People -->
+        <ng-container *ngIf="type == 'videos' || type == 'people'">
+          <div class="flex items-center justify-between">
+            <div>{{ item.name }}</div>
+
+            <div class="text-xs" *ngIf="type == 'videos'">
+              {{ item.view + " views" }}
+            </div>
+          </div>
+        </ng-container>
+
+        <!-- For Doc -->
+        <ng-container *ngIf="type == 'documents'">
+          <div>{{ item.name }}</div>
+          <div class="text-xs">{{ item.view + " views" }}</div>
+        </ng-container>
+      </div>
+    </ng-container>
+
+    <!-- card add content -->
+    <div
+      class="border border-base-cream text-base-cream flex items-center justify-center min-h-[180px] gap-2"
+    >
+      <div class="text-[2rem]">
+        <i class="fa-regular fa-circle-dot" *ngIf="type == 'people'"></i>
+        <i class="fa-solid fa-circle-plus" *ngIf="type == 'documents'"></i>
+        <i class="fa-solid fa-circle-arrow-up" *ngIf="type == 'videos'"></i>
+      </div>
+      <div class="text-base">
+        <!-- Videos -->
+        <ng-container *ngIf="type == 'videos'">
+          <div>Upload</div>
+          <div>Your Own Video</div>
+        </ng-container>
+
+        <!-- People -->
+        <ng-container *ngIf="type == 'people'">
+          <div>Show</div>
+          <div>Your Work</div>
+        </ng-container>
+
+        <!-- Doc -->
+        <ng-container *ngIf="type == 'documents'">
+          <div>Share</div>
+          <div>Your Document</div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

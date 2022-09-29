@@ -1,0 +1,58 @@
+<section class="my-6 header">
+  <div class="flex items-center justify-between gap-4">
+    <div class="text-[2.3rem] font-light">
+      Social<span class="font-extralight">Network</span>
+    </div>
+    <!-- Nav Right -->
+    <div class="flex items-center gap-6 h-[38px]">
+      <label class="relative block min-w-[400px]">
+        <span
+          class="absolute inset-y-0 right-0 flex items-center pr-2 text-base-red"
+        >
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </span>
+        <input
+          class="block w-full py-2 pl-4 pr-8 text-sm rounded-sm shadow-sm bg-base-cream text-base-red placeholder:italic placeholder:text-base-red focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
+          placeholder="Find..."
+          type="text"
+          name="search"
+        />
+      </label>
+
+      <button
+        class="h-full px-4 py-2 text-sm rounded-sm bg-base-cream text-base-red"
+      >
+        <label for="upload">
+          <i class="fa-solid fa-arrow-up"></i>
+        </label>
+        <span class="ml-2">Upload</span>
+      </button>
+
+      <!-- Profile -->
+      <div class="flex h-full profile">
+        <div
+          class="flex items-center justify-center h-full p-4 mr-1 rounded-sm bg-base-cream text-base-red"
+        >
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="relative flex flex-col text-sm cursor-pointer">
+          <div class="text-[16px]">Wassen</div>
+          <div class="text-[12px] font-light">Arshad</div>
+          <div class="notif">10</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Category -->
+  <div
+    class="flex items-center mt-8 py-4 text-[1.1rem] border-t border-b border-base-cream w-full gap-3"
+  >
+    <div
+      class="capitalize cursor-pointer"
+      *ngFor="let item of listCategory; let i = index"
+    >
+      {{ item }}
+      <span class="ml-3" *ngIf="i + 1 < listCategory.length"> / </span>
+    </div>
+  </div>
+</section>

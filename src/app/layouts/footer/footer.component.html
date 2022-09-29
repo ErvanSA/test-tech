@@ -1,0 +1,24 @@
+<section class="pt-4 text-xs border-t footer border-base-cream">
+  <div class="flex items-center gap-3 text-[1.8rem] pb-2">
+    <i class="fa-brands fa-square-twitter"></i>
+    <i class="fa-brands fa-linkedin"></i>
+    <i class="fa-brands fa-square-facebook"></i>
+  </div>
+
+  <div class="flex gap-3 my-4">
+    <div class="capitalize" *ngFor="let item of listFooter; let i = index">
+      {{ item }}
+      <span class="ml-3" *ngIf="i + 1 < listFooter.length"> / </span>
+    </div>
+  </div>
+
+  <span>
+    <i class="fa-regular fa-copyright"></i>
+    Copyright 2022 companyname.ic
+  </span>
+
+  <div class="flex gap-3 mt-1">
+    <div class="capitalize">Privacy <span class="ml-3"> / </span></div>
+    <div class="capitalize">terms</div>
+  </div>
+</section>

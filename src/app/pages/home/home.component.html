@@ -1,0 +1,25 @@
+<section class="flex flex-wrap gap-4 my-4 home">
+  <div class="basis-[68%]">
+    <!-- Videos -->
+    <app-sec-galery
+      [dataComp]="listVideo"
+      [type]="'videos'"
+      *ngIf="listVideo"
+    ></app-sec-galery>
+
+    <!-- People -->
+    <app-sec-galery
+      [dataComp]="listPeople"
+      [type]="'people'"
+      *ngIf="listPeople"
+    ></app-sec-galery>
+
+    <!-- Documents -->
+    <app-sec-galery
+      [dataComp]="listDoc"
+      [type]="'documents'"
+      *ngIf="listDoc"
+    ></app-sec-galery>
+  </div>
+  <div class="basis-[30%] w-full"></div>
+</section>

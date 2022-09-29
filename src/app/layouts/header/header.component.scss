@@ -1,0 +1,16 @@
+section.header {
+  .notif {
+    border-radius: 100%;
+    font-size: 11px;
+    height: 17px;
+    width: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -0.7rem;
+    top: -0.7rem;
+    position: absolute;
+    color: #943d44ff;
+    background-color: #f3e3ceff;
+  }
+}
