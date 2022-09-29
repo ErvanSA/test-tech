@@ -30,25 +30,25 @@ export class ApiService {
       .pipe(catchError(this.errorGetHandler.bind(this)));
   }
 
-  postDataApi(param: string, body: any): Observable<any> {
-    return this.httpClient
-      .post<any>(this.API_URL + param, body, {
-        headers: this.headers,
-      })
-      .pipe(catchError(this.errorHandler));
-  }
+  // postDataApi(param: string, body: any): Observable<any> {
+  //   return this.httpClient
+  //     .post<any>(this.API_URL + param, body, {
+  //       headers: this.headers,
+  //     })
+  //     .pipe(catchError(this.errorHandler));
+  // }
 
-  putDataApi(param: string, body: any = null): Observable<any> {
-    return this.httpClient
-      .put<any>(this.API_URL + param, body)
-      .pipe(catchError(this.errorHandler));
-  }
+  // putDataApi(param: string, body: any = null): Observable<any> {
+  //   return this.httpClient
+  //     .put<any>(this.API_URL + param, body)
+  //     .pipe(catchError(this.errorHandler));
+  // }
 
-  deleteDataApi(param: string): Observable<any> {
-    return this.httpClient
-      .delete<any>(this.API_URL + param)
-      .pipe(catchError(this.errorHandler));
-  }
+  // deleteDataApi(param: string): Observable<any> {
+  //   return this.httpClient
+  //     .delete<any>(this.API_URL + param)
+  //     .pipe(catchError(this.errorHandler));
+  // }
 
   errorGetHandler(error: HttpErrorResponse) {
     // this.router.navigate(['/not-found']);
