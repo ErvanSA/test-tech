@@ -1,0 +1,28 @@
+<div class="mb-6 sec-activity">
+  <div class="flex flex-wrap items-end justify-between mb-2">
+    <div class="text-3xl capitalize">Activity</div>
+    <div class="text-xs text-right">View timeline / Filter activities</div>
+  </div>
+
+  <div class="py-4 border-y-2 border-base-cream h-[564px] overflow-y-scroll">
+    <div
+      class="flex gap-2 p-1 mb-2 border-activity"
+      *ngFor="let item of listData; let i = index"
+    >
+      <div class="h-[70px] w-[100px] min-w-[100px]">
+        <img [src]="item?.image" class="object-cover w-full h-full" />
+      </div>
+      <div class="activity-body">
+        <div class="wrap-title">
+          <span class="font-medium">{{ item?.name }}</span>
+          <span class="ml-2 text-xs font-light">{{ item?.aktivitas }}</span>
+        </div>
+        <p>{{ item?.descriptions }}</p>
+        <div class="text-xs activity-footer">
+          <i class="fa-solid fa-comment"></i>
+          <span class="ml-1">{{ item?.createdAt | date }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,15 +1,15 @@
 <div class="mb-6 sec-galery">
-  <div class="grid items-end grid-cols-3 gap-3 mb-2">
+  <div class="grid items-end grid-cols-2 gap-3 mb-2 sm:grid-cols-3">
     <div class="text-3xl capitalize">{{ type }}</div>
     <div class="text-right">
       Browse all <span class="lowercase">{{ type }}</span>
     </div>
   </div>
-  <div class="grid grid-cols-3 gap-3 text-base-red">
+  <div class="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 text-base-red">
     <ng-container *ngFor="let item of dataComp; let i = index">
       <!-- highlight -->
       <div
-        class="relative flex flex-col justify-end col-span-2 row-span-2 p-2"
+        class="relative min-h-[280px] flex flex-col justify-end col-span-2 row-span-2 p-2"
         *ngIf="i == 0"
       >
         <img [src]="item?.image" class="bg-img" />
@@ -37,7 +37,9 @@
         <img [src]="item.image" class="bg-img" />
         <!-- For Video & People -->
         <ng-container *ngIf="type == 'videos' || type == 'people'">
-          <div class="flex items-center justify-between">
+          <div
+            class="flex flex-col justify-between sm:items-center sm:flex-row"
+          >
             <div>{{ item.name }}</div>
 
             <div class="text-xs" *ngIf="type == 'videos'">
@@ -58,12 +60,12 @@
     <div
       class="border border-base-cream text-base-cream flex items-center justify-center min-h-[180px] gap-2"
     >
-      <div class="text-[2rem]">
+      <div class="text-[1.7rem] sm:text-[2rem]">
         <i class="fa-regular fa-circle-dot" *ngIf="type == 'people'"></i>
         <i class="fa-solid fa-circle-plus" *ngIf="type == 'documents'"></i>
         <i class="fa-solid fa-circle-arrow-up" *ngIf="type == 'videos'"></i>
       </div>
-      <div class="text-base">
+      <div class="text-[.9rem] sm:text-base">
         <!-- Videos -->
         <ng-container *ngIf="type == 'videos'">
           <div>Upload</div>

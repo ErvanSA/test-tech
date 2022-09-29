@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +16,27 @@ export class HeaderComponent implements OnInit {
     'Channels',
   ];
 
-  constructor() {}
+  activeMobile: boolean = false;
+
+  constructor(private renderer: Renderer2) {}
 
   ngOnInit(): void {}
+
+  scroll(id: any) {
+    if (this.activeMobile) {
+      this.openHeader();
+    }
+    const el = document.getElementById(id.toLowerCase());
+    el?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  openHeader() {
+    let body = document.getElementById('body');
+    console.log(body);
+
+    this.activeMobile = !this.activeMobile;
+    this.activeMobile
+      ? this.renderer.addClass(body, 'overflow-hidden')
+      : this.renderer.removeClass(body, 'overflow-hidden');
+  }
 }

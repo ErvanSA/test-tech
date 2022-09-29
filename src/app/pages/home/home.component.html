@@ -1,10 +1,11 @@
-<section class="flex flex-wrap gap-4 my-4 home">
-  <div class="basis-[68%]">
+<section class="flex flex-col sm:flex-row flex-wrap gap-4 my-4 home">
+  <div class="md:basis-full lg:basis-[68%]">
     <!-- Videos -->
     <app-sec-galery
       [dataComp]="listVideo"
       [type]="'videos'"
       *ngIf="listVideo"
+      id="videos"
     ></app-sec-galery>
 
     <!-- People -->
@@ -12,6 +13,7 @@
       [dataComp]="listPeople"
       [type]="'people'"
       *ngIf="listPeople"
+      id="people"
     ></app-sec-galery>
 
     <!-- Documents -->
@@ -19,7 +21,11 @@
       [dataComp]="listDoc"
       [type]="'documents'"
       *ngIf="listDoc"
+      id="documents"
     ></app-sec-galery>
   </div>
-  <div class="basis-[30%] w-full"></div>
+  <div class="md:basis-full lg:basis-[30%] w-full">
+    <app-sec-activity></app-sec-activity>
+    <app-sec-channel></app-sec-channel>
+  </div>
 </section>

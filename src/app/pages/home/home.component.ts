@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   getVideos() {
-    this.apiService.getDataApi('documents').subscribe((res: any) => {
+    this.apiService.getDataApi('videos').subscribe((res: any) => {
       this.listVideo = res;
     });
   }

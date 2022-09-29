@@ -1,58 +1,141 @@
-<section class="my-6 header">
-  <div class="flex items-center justify-between gap-4">
-    <div class="text-[2.3rem] font-light">
-      Social<span class="font-extralight">Network</span>
-    </div>
-    <!-- Nav Right -->
-    <div class="flex items-center gap-6 h-[38px]">
-      <label class="relative block min-w-[400px]">
-        <span
-          class="absolute inset-y-0 right-0 flex items-center pr-2 text-base-red"
-        >
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </span>
-        <input
-          class="block w-full py-2 pl-4 pr-8 text-sm rounded-sm shadow-sm bg-base-cream text-base-red placeholder:italic placeholder:text-base-red focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
-          placeholder="Find..."
-          type="text"
-          name="search"
-        />
-      </label>
-
-      <button
-        class="h-full px-4 py-2 text-sm rounded-sm bg-base-cream text-base-red"
-      >
-        <label for="upload">
-          <i class="fa-solid fa-arrow-up"></i>
-        </label>
-        <span class="ml-2">Upload</span>
-      </button>
-
-      <!-- Profile -->
-      <div class="flex h-full profile">
-        <div
-          class="flex items-center justify-center h-full p-4 mr-1 rounded-sm bg-base-cream text-base-red"
-        >
-          <i class="fa-solid fa-user"></i>
+<section class="relative">
+  <div class="container px-6 my-4 sm:px-8 md:px-16 md:my-6 header">
+    <!-- destop -->
+    <div class="hidden sm:hidden md:block">
+      <div class="flex items-center justify-between gap-4">
+        <div class="md:text-[1.7rem] lg:text-[2.3rem] font-light">
+          Social<span class="font-extralight">Network</span>
         </div>
-        <div class="relative flex flex-col text-sm cursor-pointer">
-          <div class="text-[16px]">Wassen</div>
-          <div class="text-[12px] font-light">Arshad</div>
-          <div class="notif">10</div>
+        <!-- Nav Right -->
+        <div class="flex items-center md:gap-3 lg:gap-6 h-[38px]">
+          <label
+            class="relative block md:min-w-[200px] lg:min-w-[300px] xl:min-w-[400px]"
+          >
+            <span
+              class="absolute inset-y-0 right-0 flex items-center pr-2 text-base-red"
+            >
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <input
+              class="block w-full py-2 pl-4 pr-8 text-sm rounded-sm shadow-sm bg-base-cream text-base-red placeholder:italic placeholder:text-base-red focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
+              placeholder="Find..."
+              type="text"
+              name="search"
+            />
+          </label>
+
+          <button
+            class="h-full py-2 rounded-sm md:px-2 lg:px-4 md:text-xs lg:text-sm bg-base-cream text-base-red"
+          >
+            <label for="upload">
+              <i class="fa-solid fa-arrow-up"></i>
+            </label>
+            <span class="ml-2">Upload</span>
+          </button>
+
+          <!-- Profile -->
+          <div class="flex h-full profile">
+            <div
+              class="flex items-center justify-center h-full p-4 mr-1 rounded-sm md:text-xs bg-base-cream text-base-red"
+            >
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="relative flex flex-col text-sm cursor-pointer">
+              <div class="text-[16px]">Wassen</div>
+              <div class="text-[12px] font-light">Arshad</div>
+              <div class="notif">10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Category -->
+      <div
+        class="flex items-center mt-8 md:p-2 lg:py-4 md:text-[14px] lg:text-[1.1rem] border-t border-b border-base-cream w-full md:gap-2 lg:gap-3"
+      >
+        <div
+          class="capitalize cursor-pointer"
+          *ngFor="let item of listCategory; let i = index"
+        >
+          <span (click)="scroll(item)">{{ item }}</span>
+          <span class="md:ml-1 lg:ml-3" *ngIf="i + 1 < listCategory.length">
+            /
+          </span>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Category -->
-  <div
-    class="flex items-center mt-8 py-4 text-[1.1rem] border-t border-b border-base-cream w-full gap-3"
-  >
-    <div
-      class="capitalize cursor-pointer"
-      *ngFor="let item of listCategory; let i = index"
-    >
-      {{ item }}
-      <span class="ml-3" *ngIf="i + 1 < listCategory.length"> / </span>
+
+    <!-- mobile -->
+    <div class="flex justify-between items-center md:hidden text-[1.5rem]">
+      <div class="text-[1.5rem] font-light">
+        Social<span class="font-extralight">Network</span>
+      </div>
+      <i class="cursor-pointer fa-solid fa-bars" (click)="openHeader()"></i>
+
+      <div class="bg-base-red mobile" [ngClass]="{ active: activeMobile }">
+        <div class="container px-4">
+          <div
+            class="flex items-center justify-between pb-4 mb-4 border-b-2 border-base-cream"
+          >
+            <div class="text-[1.5rem] font-light">
+              Social<span class="font-extralight">Network</span>
+            </div>
+            <i
+              class="cursor-pointer fa-solid fa-xmark"
+              (click)="openHeader()"
+            ></i>
+          </div>
+
+          <label class="relative block w-full">
+            <span
+              class="absolute inset-y-0 right-0 flex items-center pr-2 text-base-red"
+            >
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <input
+              class="block w-full py-2 pl-4 pr-8 text-sm rounded-sm shadow-sm bg-base-cream text-base-red placeholder:italic placeholder:text-base-red focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
+              placeholder="Find..."
+              type="text"
+              name="search"
+            />
+          </label>
+
+          <div class="flex items-center justify-between gap-2 mt-5">
+            <button
+              class="h-full px-2 py-2 text-sm rounded-sm bg-base-cream text-base-red"
+            >
+              <label for="upload">
+                <i class="fa-solid fa-arrow-up"></i>
+              </label>
+              <span class="ml-2">Upload</span>
+            </button>
+
+            <!-- Profile -->
+            <div class="flex items-center h-full profile">
+              <div
+                class="flex items-center justify-center h-full px-5 py-3 mr-2 text-xs rounded-sm bg-base-cream text-base-red"
+              >
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <div class="relative text-[16px] cursor-pointer">
+                <span>Wassen</span>
+                <span class="font-light">Arshad</span>
+                <div class="notif">10</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- list Kategori -->
+          <ul class="pt-4 mt-4 border-t-2 border-base-cream">
+            <li
+              class="text-[1.2rem] mb-2 cursor-pointer"
+              *ngFor="let item of listCategory"
+              (click)="scroll(item)"
+            >
+              {{ item }}
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>

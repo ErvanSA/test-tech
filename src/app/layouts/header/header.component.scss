@@ -1,4 +1,4 @@
-section.header {
+::ng-deep.header {
   .notif {
     border-radius: 100%;
     font-size: 11px;
@@ -12,5 +12,20 @@ section.header {
     position: absolute;
     color: #943d44ff;
     background-color: #f3e3ceff;
+  }
+
+  .mobile {
+    position: absolute;
+    top: -70rem;
+    left: 0rem;
+    width: 100vw;
+    height: 100vh;
+    padding: 1.5rem;
+    z-index: 999;
+    transition: 0.4s all;
+
+    &.active {
+      top: -1rem;
+    }
   }
 }
